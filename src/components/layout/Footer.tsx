@@ -29,7 +29,7 @@ export default function Footer() {
               aria-label="Instagram"
             >
               <Icons.instagram
-                className="h-8 w-auto text-slate-50 hover:text-teal-400 transition-colors duration-200"
+                className="h-8 w-auto text-slate-400 hover:text-slate-200 transition-colors duration-200"
                 aria-label="Improtango - Return to homepage"
               />
             </a>
@@ -41,7 +41,7 @@ export default function Footer() {
               aria-label="Facebook"
             >
               <Icons.facebook
-                className="h-8 w-auto text-slate-50 hover:text-teal-400 transition-colors duration-200"
+                className="h-8 w-auto text-slate-400 hover:text-slate-200 transition-colors duration-200"
                 aria-label="Improtango - Return to homepage"
               />
             </a>
