@@ -106,7 +106,7 @@ temp/
 
 # Convex
 .convex/
-convex/_generated/
+# Note: convex/_generated/ should be committed for deployment
 
 # Vercel
 .vercel
