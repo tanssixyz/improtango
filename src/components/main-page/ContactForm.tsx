@@ -112,7 +112,9 @@ export function ContactForm() {
   };
 
   return (
-    <section className="py-20 md:py-32 bg-muted/30">
+    <section id="contact" className="py-20 md:py-32 bg-gradient-to-br from-slate-50/50 via-muted/30 to-teal-50/30 dark:from-slate-900/50 dark:via-muted/30 dark:to-teal-900/30 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-t from-muted/20 to-transparent animate-pulse opacity-30"></div>
+      <div className="relative z-10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           
@@ -136,7 +138,7 @@ export function ContactForm() {
               <div className="space-y-8">
                 
                 {/* Contact Message */}
-                <div className="bg-background rounded-2xl shadow-lg p-8 border border-border/50">
+                <div className="bg-background/80 backdrop-blur-sm rounded-2xl shadow-xl shadow-slate-900/10 p-8 border border-border/50 hover:shadow-2xl hover:shadow-slate-900/20 transition-all duration-500 hover:border-teal-500/30">
                   <h3 className="text-2xl font-bold text-foreground mb-4">
                     {t('contact.response')}
                   </h3>
@@ -146,7 +148,7 @@ export function ContactForm() {
                 </div>
 
                 {/* Email Contact */}
-                <div className="bg-background rounded-2xl shadow-lg p-8 border border-border/50">
+                <div className="bg-background/80 backdrop-blur-sm rounded-2xl shadow-xl shadow-slate-900/10 p-8 border border-border/50 hover:shadow-2xl hover:shadow-slate-900/20 transition-all duration-500 hover:border-teal-500/30">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="p-3 bg-teal-500/10 rounded-lg">
                       <Mail className="w-6 h-6 text-teal-500" />
@@ -164,7 +166,7 @@ export function ContactForm() {
                 </div>
 
                 {/* Social Media */}
-                <div className="bg-background rounded-2xl shadow-lg p-8 border border-border/50">
+                <div className="bg-background/80 backdrop-blur-sm rounded-2xl shadow-xl shadow-slate-900/10 p-8 border border-border/50 hover:shadow-2xl hover:shadow-slate-900/20 transition-all duration-500 hover:border-teal-500/30">
                   <h4 className="font-semibold text-foreground mb-6">{t('contact.social')}</h4>
                   <div className="flex gap-4">
                     <a 
@@ -191,7 +193,7 @@ export function ContactForm() {
 
             {/* Right Column - Contact Form */}
             <AnimatedSection delay={0.6}>
-              <div className="bg-background rounded-2xl shadow-2xl p-8 border border-border/50">
+              <div className="bg-background/80 backdrop-blur-sm rounded-2xl shadow-2xl shadow-slate-900/20 p-8 border border-border/50 hover:shadow-3xl hover:shadow-slate-900/30 transition-all duration-500 hover:border-teal-500/30">
                 <h3 className="text-2xl font-bold text-foreground mb-6">
                   {t('contact.send')}
                 </h3>
@@ -210,8 +212,8 @@ export function ContactForm() {
                       id="name"
                       value={formData.name}
                       onChange={(e) => handleInputChange('name', e.target.value)}
-                      className={`w-full px-4 py-3 rounded-lg border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200 ${
-                        errors.name ? 'border-red-500' : 'border-border hover:border-teal-500/50'
+                      className={`w-full px-4 py-3 rounded-lg border bg-background/50 backdrop-blur-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent focus:shadow-lg focus:shadow-teal-500/20 transition-all duration-300 hover:bg-background/70 ${
+                        errors.name ? 'border-red-500 shadow-lg shadow-red-500/20' : 'border-border hover:border-teal-500/50'
                       }`}
                       placeholder={t('contact.form.name.placeholder')}
                       disabled={status.type === 'loading'}
@@ -241,8 +243,8 @@ export function ContactForm() {
                       id="email"
                       value={formData.email}
                       onChange={(e) => handleInputChange('email', e.target.value)}
-                      className={`w-full px-4 py-3 rounded-lg border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200 ${
-                        errors.email ? 'border-red-500' : 'border-border hover:border-teal-500/50'
+                      className={`w-full px-4 py-3 rounded-lg border bg-background/50 backdrop-blur-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent focus:shadow-lg focus:shadow-teal-500/20 transition-all duration-300 hover:bg-background/70 ${
+                        errors.email ? 'border-red-500 shadow-lg shadow-red-500/20' : 'border-border hover:border-teal-500/50'
                       }`}
                       placeholder={t('contact.form.email.placeholder')}
                       disabled={status.type === 'loading'}
@@ -273,8 +275,8 @@ export function ContactForm() {
                     id="subject"
                     value={formData.subject}
                     onChange={(e) => handleInputChange('subject', e.target.value)}
-                    className={`w-full px-4 py-3 rounded-lg border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200 ${
-                      errors.subject ? 'border-red-500' : 'border-border hover:border-teal-500/50'
+                    className={`w-full px-4 py-3 rounded-lg border bg-background/50 backdrop-blur-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent focus:shadow-lg focus:shadow-teal-500/20 transition-all duration-300 hover:bg-background/70 ${
+                      errors.subject ? 'border-red-500 shadow-lg shadow-red-500/20' : 'border-border hover:border-teal-500/50'
                     }`}
                     placeholder={t('contact.form.subject.placeholder')}
                     disabled={status.type === 'loading'}
@@ -303,8 +305,8 @@ export function ContactForm() {
                     rows={6}
                     value={formData.message}
                     onChange={(e) => handleInputChange('message', e.target.value)}
-                    className={`w-full px-4 py-3 rounded-lg border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200 resize-none ${
-                      errors.message ? 'border-red-500' : 'border-border hover:border-teal-500/50'
+                    className={`w-full px-4 py-3 rounded-lg border bg-background/50 backdrop-blur-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent focus:shadow-lg focus:shadow-teal-500/20 transition-all duration-300 resize-none hover:bg-background/70 ${
+                      errors.message ? 'border-red-500 shadow-lg shadow-red-500/20' : 'border-border hover:border-teal-500/50'
                     }`}
                     placeholder={t('contact.form.message.placeholder')}
                     disabled={status.type === 'loading'}
@@ -353,7 +355,7 @@ export function ContactForm() {
                   <motion.button
                     type="submit"
                     disabled={status.type === 'loading'}
-                    className="w-full bg-teal-500 hover:bg-teal-600 disabled:bg-teal-500/50 text-white font-medium py-4 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
+                    className="w-full bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-600 hover:to-emerald-600 disabled:from-teal-500/50 disabled:to-emerald-500/50 text-white font-medium py-4 px-8 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-teal-500/30 hover:shadow-xl hover:shadow-teal-500/40 hover:scale-105"
                     whileHover={{ scale: status.type === 'loading' ? 1 : 1.02 }}
                     whileTap={{ scale: status.type === 'loading' ? 1 : 0.98 }}
                   >
@@ -376,6 +378,7 @@ export function ContactForm() {
 
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

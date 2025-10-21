@@ -77,6 +77,15 @@ export default function Footer() {
             </Button> */}
           </div>
         </div>
+        
+        {/* Copyright */}
+        <div className="mt-8 pt-6 border-t border-slate-800/50">
+          <div className="text-center">
+            <p className="text-sm text-slate-500">
+              © {new Date().getFullYear()} Improtango. Minna Tuovinen & Martin Heslop
+            </p>
+          </div>
+        </div>
       </div>
     </footer>
   );

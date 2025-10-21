@@ -67,7 +67,9 @@ export function LanguageProvider({
         // Navigation
         "nav.home": "Etusivu",
         "nav.concepts": "Konseptit",
-        "nav.about": "Tietoa",
+        "nav.about": "Tietoa meistä",
+        "nav.newsletter": "Uutiskirje",
+        "nav.contact": "Ota yhteyttä",
 
         // Hero
         "hero.subtitle": "Minna Tuovinen & Martin Heslop",
@@ -208,6 +210,8 @@ export function LanguageProvider({
         "nav.home": "Home",
         "nav.concepts": "Concepts",
         "nav.about": "About",
+        "nav.newsletter": "Newsletter",
+        "nav.contact": "Contact",
 
         // Hero
         "hero.subtitle": "Minna Tuovinen & Martin Heslop",

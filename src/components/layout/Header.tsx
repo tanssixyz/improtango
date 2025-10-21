@@ -45,7 +45,7 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-sm border-b border-slate-800/50">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-slate-900/70 backdrop-blur-md border-b border-slate-700/30 shadow-lg shadow-slate-900/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo/Site Name */}
@@ -67,20 +67,20 @@ export default function Header() {
             <div className="relative">
               <button
                 onClick={toggleMenu}
-                className="h-9 w-9 p-0 text-slate-300 hover:text-slate-50 hover:bg-slate-800/50 transition-all duration-200 border border-transparent hover:border-teal-500/30 rounded-md flex items-center justify-center"
+                className="h-9 w-9 p-0 text-slate-300 hover:text-slate-50 hover:bg-slate-800/50 transition-all duration-300 hover:scale-105 border border-transparent hover:border-teal-500/40 hover:shadow-lg hover:shadow-teal-500/20 rounded-md flex items-center justify-center group"
                 aria-label="Navigation menu"
                 aria-expanded={isMenuOpen}
               >
                 {isMenuOpen ? (
-                  <X className="h-5 w-5" />
+                  <X className="h-5 w-5 transition-transform duration-200 group-hover:rotate-90" />
                 ) : (
-                  <Menu className="h-5 w-5" />
+                  <Menu className="h-5 w-5 transition-transform duration-200 group-hover:scale-110" />
                 )}
               </button>
 
               {/* Dropdown Menu */}
               {isMenuOpen && (
-                <div className="absolute right-0 top-12 w-48 bg-slate-800/95 backdrop-blur-sm border border-slate-700/50 rounded-lg shadow-xl py-2">
+                <div className="absolute right-0 top-12 w-48 bg-slate-800/90 backdrop-blur-md border border-slate-600/40 rounded-xl shadow-2xl shadow-slate-900/50 py-2 animate-in fade-in slide-in-from-top-2 duration-200">
                   <Link
                     to="/"
                     onClick={closeMenu}

@@ -8,11 +8,17 @@ export const Icons = {
       role="img"
       {...props}
     >
+      <defs>
+        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#14b8a6" />
+          <stop offset="100%" stopColor="#10b981" />
+        </linearGradient>
+      </defs>
       <g transform="matrix(0.375,0,0,0.375,-9.2985,-20.3086)">
         <g transform="matrix(0.152672,0,0,0.115904,21.1064,47.6923)">
           <path
             d="M1989.16,139.335C1989.16,93.214 1955.21,55.77 1913.4,55.77L99.924,55.77C58.112,55.77 24.167,93.214 24.167,139.335L24.167,351.83C24.167,397.951 58.112,435.395 99.924,435.395L1913.4,435.395C1955.21,435.395 1989.16,397.951 1989.16,351.83L1989.16,139.335Z"
-            fill="rgb(154,44,85)"
+            fill="url(#logoGradient)"
           />
         </g>
         <g transform="matrix(0.520562,0,0,0.520562,9.2714,22.2591)">

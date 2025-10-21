@@ -34,15 +34,16 @@ export function Hero() {
         }}
       />
 
-      {/* Dark Overlay for Text Readability */}
-      <div className="absolute inset-0 bg-slate-950/60" />
+      {/* Enhanced Overlay with Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/50 via-slate-950/60 to-slate-950/70" />
+      <div className="absolute inset-0 bg-gradient-to-r from-teal-900/20 via-transparent to-emerald-900/20" />
 
       {/* Hero Content */}
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
         <div>
           {/* Main Heading */}
           <motion.h1 
-            className="text-6xl md:text-8xl font-bold text-slate-50 mb-6 tracking-tight"
+            className="text-6xl md:text-8xl font-bold text-slate-50 mb-6 tracking-tight drop-shadow-2xl"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ 
@@ -56,7 +57,7 @@ export function Hero() {
 
           {/* Subtitle */}
           <motion.p 
-            className="text-xl text-slate-300 mb-8 font-medium"
+            className="text-xl text-slate-300 mb-8 font-medium drop-shadow-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ 
@@ -82,7 +83,7 @@ export function Hero() {
             <AnimatePresence mode="wait">
               <motion.p
                 key={`quote-${currentQuote}`}
-                className="text-xl md:text-2xl text-slate-200 leading-relaxed text-center italic font-light px-4"
+                className="text-xl md:text-2xl text-slate-200 leading-relaxed text-center italic font-light px-4 drop-shadow-lg"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -30 }}

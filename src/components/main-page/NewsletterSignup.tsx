@@ -104,14 +104,16 @@ export function NewsletterSignup() {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-linear-to-br from-teal-500/5 via-background to-emerald-500/5">
+    <section id="newsletter" className="py-16 md:py-24 bg-gradient-to-br from-teal-500/10 via-background to-emerald-500/10 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-r from-teal-500/5 to-emerald-500/5 animate-pulse opacity-50"></div>
+      <div className="relative z-10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <AnimatedSection delay={0.2}>
             <div className="text-center mb-12">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-teal-500/20 rounded-full mb-6">
-                <Mail className="w-8 h-8 text-teal-500" />
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-teal-500/30 to-emerald-500/30 rounded-full mb-6 shadow-lg shadow-teal-500/25 hover:shadow-xl hover:shadow-teal-500/40 transition-all duration-300 hover:scale-110">
+                <Mail className="w-8 h-8 text-teal-400 drop-shadow-lg" />
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
                 {t("newsletter.title")}
@@ -124,7 +126,7 @@ export function NewsletterSignup() {
 
           {/* Newsletter Form */}
           <AnimatedSection delay={0.4}>
-            <div className="bg-background rounded-2xl shadow-2xl p-8 md:p-12 border border-border/50">
+            <div className="bg-background/80 backdrop-blur-sm rounded-2xl shadow-2xl shadow-slate-900/20 p-8 md:p-12 border border-border/50 hover:shadow-3xl hover:shadow-slate-900/30 transition-all duration-500 hover:border-teal-500/30">
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Email Input */}
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -137,9 +139,9 @@ export function NewsletterSignup() {
                       id="newsletter-email"
                       value={email}
                       onChange={(e) => handleEmailChange(e.target.value)}
-                      className={`w-full px-6 py-4 rounded-xl border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200 text-lg ${
+                      className={`w-full px-6 py-4 rounded-xl border bg-background/50 backdrop-blur-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent focus:shadow-lg focus:shadow-teal-500/20 transition-all duration-300 text-lg hover:bg-background/70 ${
                         emailError
-                          ? "border-red-500"
+                          ? "border-red-500 shadow-lg shadow-red-500/20"
                           : "border-border hover:border-teal-500/50"
                       }`}
                       placeholder={t("newsletter.email.placeholder")}
@@ -163,7 +165,7 @@ export function NewsletterSignup() {
                   <motion.button
                     type="submit"
                     disabled={status.type === "loading"}
-                    className="px-8 py-4 bg-teal-500 hover:bg-teal-600 disabled:bg-teal-500/50 text-white font-medium rounded-xl transition-colors duration-200 flex items-center justify-center gap-3 whitespace-nowrap text-lg"
+                    className="px-8 py-4 bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-600 hover:to-emerald-600 disabled:from-teal-500/50 disabled:to-emerald-500/50 text-white font-medium rounded-xl transition-all duration-300 flex items-center justify-center gap-3 whitespace-nowrap text-lg shadow-lg shadow-teal-500/30 hover:shadow-xl hover:shadow-teal-500/40 hover:scale-105"
                     whileHover={{ scale: status.type === "loading" ? 1 : 1.02 }}
                     whileTap={{ scale: status.type === "loading" ? 1 : 0.98 }}
                   >
@@ -261,6 +263,7 @@ export function NewsletterSignup() {
             </div>
           </AnimatedSection>
         </div>
+      </div>
       </div>
     </section>
   );
