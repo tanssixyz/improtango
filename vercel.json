@@ -89,7 +89,7 @@
       "maxDuration": 30
     }
   },
-  "regions": ["hel1", "arn1", "fra1"],
+  "regions": ["fra1"],
   "cleanUrls": true,
   "trailingSlash": false
 }
