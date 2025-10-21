@@ -1,0 +1,267 @@
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Mail, Send, CheckCircle, AlertCircle } from "lucide-react";
+import { AnimatedSection } from "@/components/AnimatedSection";
+import { useMutation, useAction } from "convex/react";
+import { api } from "../../../convex/_generated/api";
+import { useLanguage } from "@/lib/language-context";
+
+interface FormStatus {
+  type: "idle" | "loading" | "success" | "error";
+  message: string;
+}
+
+export function NewsletterSignup() {
+  const { t } = useLanguage();
+  const subscribe = useMutation(api.newsletter.subscribe);
+  const sendWelcomeEmail = useAction(api.newsletter.sendWelcomeEmail);
+  const sendAdminNotification = useAction(api.newsletter.sendAdminNotification);
+
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [status, setStatus] = useState<FormStatus>({
+    type: "idle",
+    message: "",
+  });
+
+  const validateEmail = (email: string): boolean => {
+    if (!email.trim()) {
+      setEmailError("Sähköposti on pakollinen");
+      return false;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setEmailError("Virheellinen sähköpostiosoite");
+      return false;
+    }
+
+    setEmailError("");
+    return true;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!validateEmail(email)) {
+      return;
+    }
+
+    setStatus({
+      type: "loading",
+      message: "Lisätään uutiskirjeen tilaajiin...",
+    });
+
+    try {
+      // 1. Subscribe to newsletter (mutation) - must complete first
+      await subscribe({ email });
+
+      // 2. Send emails (actions) - can run in parallel after subscription
+      await Promise.all([
+        sendWelcomeEmail({ email }),
+        sendAdminNotification({ email }),
+      ]);
+
+      setStatus({
+        type: "success",
+        message:
+          "Kiitos! Olet nyt tilannut uutiskirjeemme. Tarkista sähköpostisi vahvistusta varten.",
+      });
+      setEmail("");
+      setEmailError("");
+
+      // Auto-clear success message after 7 seconds
+      setTimeout(() => {
+        setStatus({ type: "idle", message: "" });
+      }, 7000);
+    } catch (error) {
+      console.error("Newsletter signup error:", error);
+
+      // More detailed error logging
+      if (error instanceof Error) {
+        console.error("Error details:", {
+          message: error.message,
+          stack: error.stack,
+          name: error.name,
+        });
+      }
+
+      setStatus({
+        type: "error",
+        message:
+          error instanceof Error
+            ? error.message
+            : "Uutiskirjeen tilauksessa tapahtui virhe. Yritä uudelleen.",
+      });
+    }
+  };
+
+  const handleEmailChange = (value: string) => {
+    setEmail(value);
+    // Clear error when user starts typing
+    if (emailError) {
+      setEmailError("");
+    }
+  };
+
+  return (
+    <section className="py-16 md:py-24 bg-linear-to-br from-teal-500/5 via-background to-emerald-500/5">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          {/* Header */}
+          <AnimatedSection delay={0.2}>
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-teal-500/20 rounded-full mb-6">
+                <Mail className="w-8 h-8 text-teal-500" />
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+                {t("newsletter.title")}
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+                {t("newsletter.subtitle")}
+              </p>
+            </div>
+          </AnimatedSection>
+
+          {/* Newsletter Form */}
+          <AnimatedSection delay={0.4}>
+            <div className="bg-background rounded-2xl shadow-2xl p-8 md:p-12 border border-border/50">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Email Input */}
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <div className="flex-1">
+                    <label htmlFor="newsletter-email" className="sr-only">
+                      {t("newsletter.email.placeholder")}
+                    </label>
+                    <input
+                      type="email"
+                      id="newsletter-email"
+                      value={email}
+                      onChange={(e) => handleEmailChange(e.target.value)}
+                      className={`w-full px-6 py-4 rounded-xl border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200 text-lg ${
+                        emailError
+                          ? "border-red-500"
+                          : "border-border hover:border-teal-500/50"
+                      }`}
+                      placeholder={t("newsletter.email.placeholder")}
+                      disabled={status.type === "loading"}
+                    />
+                    <AnimatePresence>
+                      {emailError && (
+                        <motion.p
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -10 }}
+                          className="text-red-500 text-sm mt-2"
+                        >
+                          {emailError}
+                        </motion.p>
+                      )}
+                    </AnimatePresence>
+                  </div>
+
+                  {/* Submit Button */}
+                  <motion.button
+                    type="submit"
+                    disabled={status.type === "loading"}
+                    className="px-8 py-4 bg-teal-500 hover:bg-teal-600 disabled:bg-teal-500/50 text-white font-medium rounded-xl transition-colors duration-200 flex items-center justify-center gap-3 whitespace-nowrap text-lg"
+                    whileHover={{ scale: status.type === "loading" ? 1 : 1.02 }}
+                    whileTap={{ scale: status.type === "loading" ? 1 : 0.98 }}
+                  >
+                    {status.type === "loading" ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                        {t("newsletter.subscribing")}
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5" />
+                        {t("newsletter.subscribe")}
+                      </>
+                    )}
+                  </motion.button>
+                </div>
+
+                {/* Status Messages */}
+                <AnimatePresence>
+                  {status.type !== "idle" && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      className={`p-5 rounded-xl flex items-center gap-3 font-medium text-base ${
+                        status.type === "success"
+                          ? "bg-green-500/20 text-green-700 dark:text-green-300 border-2 border-green-500/40"
+                          : status.type === "error"
+                            ? "bg-red-500/20 text-red-700 dark:text-red-300 border-2 border-red-500/40"
+                            : "bg-teal-500/20 text-teal-700 dark:text-teal-300 border-2 border-teal-500/40"
+                      }`}
+                    >
+                      {status.type === "success" && (
+                        <CheckCircle className="w-5 h-5 shrink-0" />
+                      )}
+                      {status.type === "error" && (
+                        <AlertCircle className="w-5 h-5 shrink-0" />
+                      )}
+                      {status.type === "loading" && (
+                        <div className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin shrink-0" />
+                      )}
+                      <span>{status.message}</span>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                {/* Privacy Note */}
+                <div className="text-center">
+                  <p className="text-sm text-muted-foreground">
+                    {t("newsletter.privacy")}
+                  </p>
+                </div>
+              </form>
+            </div>
+          </AnimatedSection>
+
+          {/* Features */}
+          <AnimatedSection delay={0.6}>
+            <div className="grid md:grid-cols-3 gap-6 mt-12">
+              <div className="text-center p-6">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-teal-500/20 rounded-full mb-4">
+                  <Mail className="w-6 h-6 text-teal-500" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">
+                  {t("newsletter.feature1.title")}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {t("newsletter.feature1.desc")}
+                </p>
+              </div>
+
+              <div className="text-center p-6">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-emerald-500/20 rounded-full mb-4">
+                  <CheckCircle className="w-6 h-6 text-emerald-500" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">
+                  {t("newsletter.feature2.title")}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {t("newsletter.feature2.desc")}
+                </p>
+              </div>
+
+              <div className="text-center p-6">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-500/20 rounded-full mb-4">
+                  <Send className="w-6 h-6 text-blue-500" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">
+                  {t("newsletter.feature3.title")}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {t("newsletter.feature3.desc")}
+                </p>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </div>
+    </section>
+  );
+}

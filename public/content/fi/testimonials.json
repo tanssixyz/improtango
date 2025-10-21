@@ -1,0 +1,64 @@
+{
+  "featured": [
+    {
+      "id": "testimonial-1",
+      "title": "30 vuotta yhdessä, ensimmäinen tanssi",
+      "quote": "Olemme olleet yhdessä 30 vuotta, tällä kurssilla tanssimme ensimmäistä kertaa 30 vuoteen. Alussa oli haastavaa, mutta kun alkoi ymmärtää kommunikaatiota, yhteinen tanssi alkoi virtaamaan paremmin.",
+      "featured": true
+    },
+    {
+      "id": "testimonial-2",
+      "title": "Nyt vasta tajusimme jutun idean",
+      "quote": "Harrastimme jonkin verran tanssia nuoruudessa. Koskaan emme saaneet valmentajilta tällaista oppia viemiseen ja seuraamiseen. Voi vitsi, miten hyviä olisimme jos olisimme käyneet tämän kurssin 25 vuotta sitten. Nyt vasta tajusimme jutun idean! Se oppi, jonka saimme kuuntelusta ja palautteen annosta on suoraan sovellettavissa parisuhteeseen.",
+      "featured": true
+    },
+    {
+      "id": "testimonial-3",
+      "title": "Ensimmäistä kertaa kokemassa flow'ta",
+      "quote": "Emme ole tanssijoita, mutta olemme aina ihailleet ihmisiä, jotka osaavat tanssia. Tällä kurssilla pääsimme kokemaan ainakin hetkittäin flown tunnetta silloin kun tanssimme sujui ja se oli hienoa.",
+      "featured": true
+    }
+  ],
+  "grid": [
+    {
+      "id": "testimonial-4",
+      "quote": "Tätä lisää! Ihan mahtavaa! Selkeä opetus. Mahtava miljöö. Ihanaa improvisointia ja vapautta!",
+      "featured": false
+    },
+    {
+      "id": "testimonial-5",
+      "quote": "Kiitos ihanasta kurssista! Erittäin hyvää opetusta ja lämmin tunnelma. Uusi lähestymistapa tangoon.",
+      "featured": false
+    },
+    {
+      "id": "testimonial-6",
+      "quote": "Kurssin harjoitukset olivat selkeitä ja yksinkertaisia, pääsee nopeasti jyvälle. Tämä oli hyvä alku tanssiharrastukselle.",
+      "featured": false
+    },
+    {
+      "id": "testimonial-7",
+      "quote": "Meillä molemmilla on kiireelliset aikataulut, mutta tunnilla voitiin keskittyä toisiimme ja tehdä jotain kivaa yhdessä.",
+      "featured": false
+    },
+    {
+      "id": "testimonial-8",
+      "quote": "Minna ja Martin ovat innostavia ja kannustavia opettajia, antavat selkeitä ohjeita ja paljon palautetta.",
+      "featured": false
+    },
+    {
+      "id": "testimonial-9",
+      "quote": "Kurssin sisältö meni pidemmälle oman parisuhteen pohdintaan.",
+      "featured": false
+    },
+    {
+      "id": "testimonial-10",
+      "quote": "Olen käynyt monella tanssikurssilla, mutta tällä kurssilla vihdoin pääsin jyvälle mitä tanssi oikeasti on. Alussa olin skeptinen, lopussa tajusin miten hieno kurssi oli.",
+      "featured": false
+    },
+    {
+      "id": "testimonial-11",
+      "quote": "Haluaisimme tosi mieluusti jatkokurssille!",
+      "featured": false
+    }
+  ]
+}

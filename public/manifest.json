@@ -1,0 +1,67 @@
+{
+  "name": "Improtango - Moderni paritanssin tanssimuoto",
+  "short_name": "Improtango",
+  "description": "Improtango on moderni tanssimuoto, jossa jokainen hetki syntyy hetkessä. Ei valmiita kaavoja, vain kaksi ihmistä ja vapaus luoda yhdessä.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#14b8a6",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "fi",
+  "categories": ["entertainment", "lifestyle"],
+  "icons": [
+    {
+      "src": "/images/og/android-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/images/optimized/android-512x512.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/og/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Konseptit",
+      "short_name": "Konseptit",
+      "description": "Tutustu improtangon seitsemään perusperiaatteeseen",
+      "url": "/konseptit",
+      "icons": [
+        {
+          "src": "/images/og/favicon.svg",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Tietoa meistä",
+      "short_name": "Tietoa",
+      "description": "Minna Tuovinen & Martin Heslop",
+      "url": "/about",
+      "icons": [
+        {
+          "src": "/images/og/favicon.svg",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/og/og-1.jpg",
+      "sizes": "1800x1052",
+      "type": "image/jpeg",
+      "form_factor": "wide"
+    }
+  ]
+}

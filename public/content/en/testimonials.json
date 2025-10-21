@@ -1,0 +1,64 @@
+{
+  "featured": [
+    {
+      "id": "testimonial-1",
+      "title": "30 years together, first dance",
+      "quote": "We have been together for 30 years, in this course we danced for the first time in 30 years. It was challenging at first, but when we started to understand communication, our shared dance began to flow better.",
+      "featured": true
+    },
+    {
+      "id": "testimonial-2",
+      "title": "Only now did we understand the idea",
+      "quote": "We did some dancing in our youth. We never got this kind of teaching about leading and following from coaches. Damn, how good we would have been if we had taken this course 25 years ago. Only now did we understand the idea! The lesson we received about listening and giving feedback is directly applicable to our relationship.",
+      "featured": true
+    },
+    {
+      "id": "testimonial-3",
+      "title": "First time experiencing flow",
+      "quote": "We are not dancers, but we have always admired people who can dance. In this course we got to experience the feeling of flow, at least momentarily, when our dancing was smooth and it was wonderful.",
+      "featured": true
+    }
+  ],
+  "grid": [
+    {
+      "id": "testimonial-4",
+      "quote": "More of this! Absolutely amazing! Clear teaching. Great environment. Wonderful improvisation and freedom!",
+      "featured": false
+    },
+    {
+      "id": "testimonial-5",
+      "quote": "Thank you for a wonderful course! Excellent teaching and warm atmosphere. A new approach to tango.",
+      "featured": false
+    },
+    {
+      "id": "testimonial-6",
+      "quote": "The course exercises were clear and simple, you get to the point quickly. This was a good start to dance as a hobby.",
+      "featured": false
+    },
+    {
+      "id": "testimonial-7",
+      "quote": "We both have busy schedules, but in class we could focus on each other and do something fun together.",
+      "featured": false
+    },
+    {
+      "id": "testimonial-8",
+      "quote": "Minna and Martin are inspiring and encouraging teachers, giving clear instructions and lots of feedback.",
+      "featured": false
+    },
+    {
+      "id": "testimonial-9",
+      "quote": "The course content went further into reflecting on our own relationship.",
+      "featured": false
+    },
+    {
+      "id": "testimonial-10",
+      "quote": "I have been to many dance courses, but in this course I finally got the point of what dance really is. I was skeptical at first, but at the end I realized what a great course it was.",
+      "featured": false
+    },
+    {
+      "id": "testimonial-11",
+      "quote": "We would really like to go to a follow-up course!",
+      "featured": false
+    }
+  ]
+}

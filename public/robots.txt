@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://improtango.fi/sitemap.xml
+
+# Disallow admin or sensitive areas (none currently, but good practice)
+# Disallow: /admin/
+
+# Allow search engines to crawl all public content
+# High-value content for search engines
+Allow: /konseptit
+Allow: /about
+
+# Utility pages with lower SEO value
+Allow: /unsubscribe

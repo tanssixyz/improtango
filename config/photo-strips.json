@@ -1,0 +1,54 @@
+{
+  "strips": [
+    {
+      "id": "strip-1",
+      "images": [
+        "/images/strips/strip1-1.webp",
+        "/images/strips/strip1-2.webp",
+        "/images/strips/strip1-3.webp",
+        "/images/strips/strip1-4.webp",
+        "/images/strips/strip1-5.webp"
+      ]
+    },
+    {
+      "id": "strip-2",
+      "images": [
+        "/images/strips/strip2-1.webp",
+        "/images/strips/strip2-2.webp",
+        "/images/strips/strip2-3.webp",
+        "/images/strips/strip2-4.webp",
+        "/images/strips/strip2-5.webp"
+      ]
+    },
+    {
+      "id": "strip-3",
+      "images": [
+        "/images/strips/strip3-1.webp",
+        "/images/strips/strip3-2.webp",
+        "/images/strips/strip3-3.webp",
+        "/images/strips/strip3-4.webp",
+        "/images/strips/strip3-5.webp"
+      ]
+    },
+    {
+      "id": "strip-4",
+      "images": [
+        "/images/strips/strip4-1.webp",
+        "/images/strips/strip4-2.webp",
+        "/images/strips/strip4-3.webp",
+        "/images/strips/strip4-4.webp",
+        "/images/strips/strip4-5.webp"
+      ]
+    },
+    {
+      "id": "strip-5",
+      "images": [
+        "/images/strips/strip5-1.jpg",
+        "/images/strips/strip5-2.jpg",
+        "/images/strips/strip5-3.jpg",
+        "/images/strips/strip5-4.jpg",
+        "/images/strips/strip5-5.jpg"
+      ]
+    }
+  ]
+}
