@@ -1,4 +1,4 @@
-import { v } from "convex/values";
+import { v, ConvexError } from "convex/values";
 import { mutation, action, query } from "./_generated/server";
 import type { MutationCtx, ActionCtx, QueryCtx } from "./_generated/server";
 import { newsletterWelcomeEmail, newsletterAdminNotification, newsletterUnsubscribeNotification } from "./lib/email_templates";
@@ -16,7 +16,7 @@ export const subscribe = mutation({
       .first();
 
     if (existing) {
-      throw new Error("Tämä sähköpostiosoite on jo tilattu uutiskirjeelle.");
+      throw new ConvexError("Tämä sähköpostiosoite on jo tilattu uutiskirjeelle.");
     }
 
     // Add to database
@@ -62,7 +62,7 @@ export const sendWelcomeEmail = action({
     if (!response.ok) {
       const errorText = await response.text();
       console.error("Resend API Error:", response.status, errorText);
-      throw new Error(`Failed to send welcome email: ${response.status} ${errorText}`);
+      throw new ConvexError(`Failed to send welcome email: ${response.status} ${errorText}`);
     }
 
     const responseData = await response.json();
@@ -104,7 +104,7 @@ export const sendAdminNotification = action({
     if (!response.ok) {
       const errorText = await response.text();
       console.error("Admin notification error:", response.status, errorText);
-      throw new Error(`Failed to send admin notification: ${response.status} ${errorText}`);
+      throw new ConvexError(`Failed to send admin notification: ${response.status} ${errorText}`);
     }
 
     const responseData = await response.json();
@@ -127,7 +127,7 @@ export const unsubscribe = mutation({
       .first();
 
     if (!subscriber) {
-      throw new Error("Sähköpostiosoitetta ei löytynyt uutiskirjeen tilaajista.");
+      throw new ConvexError("Sähköpostiosoitetta ei löytynyt uutiskirjeen tilaajista.");
     }
 
     // Remove from database

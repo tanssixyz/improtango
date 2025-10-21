@@ -1,4 +1,4 @@
-import { v } from "convex/values";
+import { v, ConvexError } from "convex/values";
 import { action } from "./_generated/server";
 import type { ActionCtx } from "./_generated/server";
 import { contactConfirmationEmail } from "./lib/email_templates";
@@ -29,7 +29,7 @@ export const sendContactMessage = action({
     for (const [key, value] of Object.entries(requiredEnvVars)) {
       if (!value) {
         console.error(`Missing environment variable: ${key}`);
-        throw new Error(`Missing environment variable: ${key}`);
+        throw new ConvexError(`Missing environment variable: ${key}`);
       }
     }
 
@@ -69,7 +69,7 @@ export const sendContactMessage = action({
       });
 
       if (!adminResponse.ok) {
-        throw new Error(`Failed to send admin email: ${adminResponse.status} ${adminResponse.statusText} - ${adminResponseText}`);
+        throw new ConvexError(`Failed to send admin email: ${adminResponse.status} ${adminResponse.statusText} - ${adminResponseText}`);
       }
 
       // 2. Send confirmation email to user
