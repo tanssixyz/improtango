@@ -25,29 +25,33 @@ Modern website for Improtango - a contemporary partner dance form created by Min
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn
 - Convex account (for backend functionality)
 
-### Installation
+## Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd improtango
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Set up environment variables**
+
    ```bash
    cp .env.example .env.local
    ```
-   
+
    Configure the following variables:
+
    ```env
    VITE_CONVEX_URL=your_convex_deployment_url
    CONVEX_DEPLOY_KEY=your_convex_deploy_key
@@ -55,6 +59,7 @@ Modern website for Improtango - a contemporary partner dance form created by Min
    ```
 
 4. **Start development server**
+
    ```bash
    npm run dev
    ```
@@ -116,13 +121,17 @@ convex/                 # Backend functions and schema
 ## 🔧 Configuration
 
 ### Tailwind CSS
+
 Custom configuration in `tailwind.config.js` with:
+
 - Custom color palette
 - Extended animations
 - Typography settings
 
 ### Vite
+
 Optimized build configuration with:
+
 - SWC for fast compilation
 - Path aliases (@/)
 - Asset optimization
