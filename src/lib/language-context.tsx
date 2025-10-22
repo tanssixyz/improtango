@@ -41,7 +41,7 @@ export function LanguageProvider({
   const [language, setLanguage] = useState<Language>(() => {
     if (typeof window !== "undefined") {
       const stored = localStorage.getItem(storageKey);
-      if (stored === 'fi' || stored === 'en') {
+      if (stored === "fi" || stored === "en") {
         return stored;
       }
     }
@@ -74,20 +74,20 @@ export function LanguageProvider({
         // Hero
         "hero.subtitle": "Minna Tuovinen & Martin Heslop",
         "hero.quote1":
-          "Virtaus on tila, jossa tekijä katoaa ja jäljelle jää vain puhdas liike.",
+          "Virtaus on tila, jossa tekijä katoaa ja jäljelle jää puhdas liike.",
         "hero.quote2":
           "Tila ei ole tyhjyyttä vaan mahdollisuuksien kenttä, jossa liike saa merkityksensä.",
         "hero.quote3":
-          "Aito yhteys syntyy, kun kaksi ihmistä päättää olla läsnä samassa hetkessä.",
+          "Aito yhteys syntyy, kun kaksi ihmistä valitsee olla läsnä samassa hetkessä.",
         "hero.quote4":
-          "Keho on instrumentti, joka osaa laulaa, kun sitä kuuntelee tarpeeksi tarkasti.",
+          "Keho on instrumentti, joka laulaa, kun sitä kuuntelee tarkasti.",
         "hero.quote5":
           "Jokainen liike on valinta, jokainen hetki mahdollisuus ilmentää jotain aitoa.",
 
         // Contact
         "contact.title": "Ota yhteyttä",
         "contact.subtitle":
-          "Haluatko tietää lisää Improtangosta tai varata työpajan? Lähetä meille viesti, niin vastaamme mahdollisimman pian.",
+          "Haluatko tietää lisää Improtangosta? Lähetä meille viesti, niin vastaamme mahdollisimman pian.",
         "contact.response": "Otamme yhteyttä pian",
         "contact.response.text":
           "Lähetä meille viesti lomakkeella, niin vastaamme mahdollisimman pian. Voit myös ottaa suoraan yhteyttä sähköpostitse tai seurata meitä sosiaalisessa mediassa.",
@@ -102,14 +102,14 @@ export function LanguageProvider({
         "contact.form.name.placeholder": "Nimesi",
         "contact.form.email.placeholder": "sähköposti@esimerkki.fi",
         "contact.form.subject.placeholder":
-          "Esim. Työpajan varaus, kysymys Improtangosta...",
+          "Esim. Tietoa kursseista, lisätietoa Improtangosta...",
         "contact.form.message.placeholder":
-          "Kerro meille lisää... Millaista tietoa kaipaat tai millainen työpaja sinua kiinnostaisi?",
+          "Kerro meille lisää... Millaista tietoa kaipaat?",
 
         // Newsletter
         "newsletter.title": "Pysy mukana Improtangon maailmassa",
         "newsletter.subtitle":
-          "Tilaa uutiskirjeemme ja saat tietoa tulevista workshopeista, tapahtumista ja Improtangon kehittymisestä. Lähetämme vain silloin, kun meillä on todella jotain kerrottavaa.",
+          "Tilaa uutiskirjeemme ja saat tietoa tulevista workshopeista, tapahtumista ja Improtangon kehittymisestä. Lähetämme vain silloin, kun meillä on jotain kerrottavaa.",
         "newsletter.email.placeholder": "Sähköpostiosoitteesi",
         "newsletter.subscribe": "Tilaa uutiskirje",
         "newsletter.subscribing": "Tilataan...",
@@ -159,45 +159,57 @@ export function LanguageProvider({
           "Tietoa meistä - Minna Tuovinen & Martin Heslop | Improtango",
         "about.seo.description":
           "Tutustuu Improtangon opettajiin Minna Tuoviseen ja Martin Hesloppiin. Heidän tarinansa, visionsa ja matka kohti modernia paritanssia.",
-        
+
         // Concepts page
-        "concepts.seo.title": "Seitsemän Konseptia - Improtango | Minna Tuovinen & Martin Heslop",
-        "concepts.seo.description": "Tutustu improtangon seitsemään perusperiaatteeseen ja filosofiaan. Näiden konseptien kautta avautuu modernin paritanssin syvyys ja kauneus.",
+        "concepts.seo.title":
+          "Seitsemän Konseptia - Improtango | Minna Tuovinen & Martin Heslop",
+        "concepts.seo.description":
+          "Tutustu improtangon seitsemään perusperiaatteeseen ja filosofiaan. Näiden konseptien kautta avautuu modernin paritanssin syvyys ja kauneus.",
 
         // 404 page
         "404.seo.title": "404 - Sivua ei löytynyt | Improtango",
-        "404.seo.description": "Etsimäsi sivu ei löytynyt. Palaa takaisin Improtangon etusivulle tai tutustu konsepteihimme.",
+        "404.seo.description":
+          "Etsimäsi sivu ei löytynyt. Palaa takaisin Improtangon etusivulle tai tutustu konsepteihimme.",
         "404.title": "Sivua ei löytynyt",
-        "404.subtitle": "Etsimäsi sivu on kadonnut jonnekin tanssin rytmiin. Ehkä se improvisoi uuden paikan, tai ehkä kirjoitit osoitteen väärin?",
+        "404.subtitle":
+          "Etsimäsi sivu on kadonnut jonnekin tanssin rytmiin. Ehkä se improvisoi uuden paikan, tai ehkä kirjoitit osoitteen väärin?",
         "404.back_home": "Takaisin etusivulle",
         "404.explore_concepts": "Tutustu konsepteihin",
         "404.helpful_links": "Ehkä etsit jotain näistä?",
         "404.about_link": "Tietoa meistä",
-        "404.about_desc": "Minna Tuovinen & Martin Heslop ja Improtangon tarina",
+        "404.about_desc":
+          "Minna Tuovinen & Martin Heslop ja Improtangon tarina",
         "404.concepts_link": "Konseptit",
         "404.concepts_desc": "Seitsemän ydinkonseptia Improtangon maailmasta",
         "404.contact_link": "Ota yhteyttä",
         "404.contact_desc": "Kysy meiltä suoraan Improtangosta",
-        "404.quote": "Joskus eksyneet askeleet johtavat kauneimpiin löytöihin. Kuten tanssissa, myös netissä voi löytää jotain odottamatonta.",
+        "404.quote":
+          "Joskus eksyneet askeleet johtavat kauneimpiin löytöihin. Kuten tanssissa, myös netissä voi löytää jotain odottamatonta.",
         "404.quote_attribution": "— Improtangon filosofia",
 
         // Unsubscribe page
         "unsubscribe.seo.title": "Peruuta uutiskirjeen tilaus - Improtango",
-        "unsubscribe.seo.description": "Peruuta Improtangon uutiskirjeen tilaus. Voit helposti lopettaa uutiskirjeen tilauksen tällä sivulla.",
+        "unsubscribe.seo.description":
+          "Peruuta Improtangon uutiskirjeen tilaus. Voit helposti lopettaa uutiskirjeen tilauksen tällä sivulla.",
         "unsubscribe.title": "Peruuta uutiskirjeen tilaus",
-        "unsubscribe.subtitle": "Ikävä kuulla, että haluat lopettaa uutiskirjeemme tilauksen. Anna sähköpostiosoitteesi alla peruuttaaksesi tilauksen.",
+        "unsubscribe.subtitle":
+          "Ikävä kuulla, että haluat lopettaa uutiskirjeemme tilauksen. Anna sähköpostiosoitteesi alla peruuttaaksesi tilauksen.",
         "unsubscribe.email_label": "Sähköpostiosoite",
         "unsubscribe.email_placeholder": "sähköposti@esimerkki.fi",
         "unsubscribe.button": "Peruuta tilaus",
         "unsubscribe.button_loading": "Peruutetaan...",
         "unsubscribe.status_loading": "Peruutetaan uutiskirjeen tilausta...",
-        "unsubscribe.status_success": "Uutiskirjeen tilaus on peruutettu onnistuneesti. Et saa enää uutiskirjeitä tähän sähköpostiosoitteeseen.",
-        "unsubscribe.status_error": "Uutiskirjeen tilauksen peruuttamisessa tapahtui virhe. Yritä uudelleen.",
+        "unsubscribe.status_success":
+          "Uutiskirjeen tilaus on peruutettu onnistuneesti. Et saa enää uutiskirjeitä tähän sähköpostiosoitteeseen.",
+        "unsubscribe.status_error":
+          "Uutiskirjeen tilauksen peruuttamisessa tapahtui virhe. Yritä uudelleen.",
         "unsubscribe.not_subscribed": "ei ole tilattu uutiskirjeeseemme.",
         "unsubscribe.email_required": "Sähköposti on pakollinen",
         "unsubscribe.email_invalid": "Virheellinen sähköpostiosoite",
-        "unsubscribe.help_text": "Jos sinulla on ongelmia tilauksen peruuttamisessa, voit ottaa meihin yhteyttä osoitteessa",
-        "unsubscribe.resubscribe_text": "Jos muutat mielesi, voit tilata uutiskirjeen uudelleen milloin tahansa etusivultamme.",
+        "unsubscribe.help_text":
+          "Jos sinulla on ongelmia tilauksen peruuttamisessa, voit ottaa meihin yhteyttä osoitteessa",
+        "unsubscribe.resubscribe_text":
+          "Jos muutat mielesi, voit tilata uutiskirjeen uudelleen milloin tahansa etusivultamme.",
         "unsubscribe.back_home": "Takaisin etusivulle",
 
         // Common
@@ -301,45 +313,57 @@ export function LanguageProvider({
           "About Us - Minna Tuovinen & Martin Heslop | Improtango",
         "about.seo.description":
           "Meet Improtango teachers Minna Tuovinen and Martin Heslop. Their story, vision and journey towards modern partner dance.",
-        
+
         // Concepts page
-        "concepts.seo.title": "Seven Concepts - Improtango | Minna Tuovinen & Martin Heslop",
-        "concepts.seo.description": "Explore the seven core principles and philosophy of improtango. Through these concepts, the depth and beauty of modern partner dance unfolds.",
+        "concepts.seo.title":
+          "Seven Concepts - Improtango | Minna Tuovinen & Martin Heslop",
+        "concepts.seo.description":
+          "Explore the seven core principles and philosophy of improtango. Through these concepts, the depth and beauty of modern partner dance unfolds.",
 
         // 404 page
         "404.seo.title": "404 - Page Not Found | Improtango",
-        "404.seo.description": "The page you are looking for was not found. Return to Improtango's homepage or explore our concepts.",
+        "404.seo.description":
+          "The page you are looking for was not found. Return to Improtango's homepage or explore our concepts.",
         "404.title": "Page not found",
-        "404.subtitle": "The page you're looking for has disappeared somewhere into the rhythm of dance. Maybe it's improvising a new place, or maybe you typed the address wrong?",
+        "404.subtitle":
+          "The page you're looking for has disappeared somewhere into the rhythm of dance. Maybe it's improvising a new place, or maybe you typed the address wrong?",
         "404.back_home": "Back to homepage",
         "404.explore_concepts": "Explore concepts",
         "404.helpful_links": "Maybe you're looking for one of these?",
         "404.about_link": "About us",
-        "404.about_desc": "Minna Tuovinen & Martin Heslop and the Improtango story",
+        "404.about_desc":
+          "Minna Tuovinen & Martin Heslop and the Improtango story",
         "404.concepts_link": "Concepts",
         "404.concepts_desc": "Seven core concepts from the world of Improtango",
         "404.contact_link": "Contact us",
         "404.contact_desc": "Ask us directly about Improtango",
-        "404.quote": "Sometimes lost steps lead to the most beautiful discoveries. Like in dance, you can find something unexpected on the web too.",
+        "404.quote":
+          "Sometimes lost steps lead to the most beautiful discoveries. Like in dance, you can find something unexpected on the web too.",
         "404.quote_attribution": "— Improtango philosophy",
 
         // Unsubscribe page
         "unsubscribe.seo.title": "Unsubscribe from Newsletter - Improtango",
-        "unsubscribe.seo.description": "Unsubscribe from Improtango newsletter. You can easily stop receiving our newsletter on this page.",
+        "unsubscribe.seo.description":
+          "Unsubscribe from Improtango newsletter. You can easily stop receiving our newsletter on this page.",
         "unsubscribe.title": "Unsubscribe from newsletter",
-        "unsubscribe.subtitle": "Sorry to hear you want to stop receiving our newsletter. Enter your email address below to unsubscribe.",
+        "unsubscribe.subtitle":
+          "Sorry to hear you want to stop receiving our newsletter. Enter your email address below to unsubscribe.",
         "unsubscribe.email_label": "Email address",
         "unsubscribe.email_placeholder": "email@example.com",
         "unsubscribe.button": "Unsubscribe",
         "unsubscribe.button_loading": "Unsubscribing...",
         "unsubscribe.status_loading": "Unsubscribing from newsletter...",
-        "unsubscribe.status_success": "Newsletter subscription has been successfully cancelled. You will no longer receive newsletters to this email address.",
-        "unsubscribe.status_error": "An error occurred while unsubscribing from the newsletter. Please try again.",
+        "unsubscribe.status_success":
+          "Newsletter subscription has been successfully cancelled. You will no longer receive newsletters to this email address.",
+        "unsubscribe.status_error":
+          "An error occurred while unsubscribing from the newsletter. Please try again.",
         "unsubscribe.not_subscribed": "is not subscribed to our newsletter.",
         "unsubscribe.email_required": "Email is required",
         "unsubscribe.email_invalid": "Invalid email address",
-        "unsubscribe.help_text": "If you have problems unsubscribing, you can contact us at",
-        "unsubscribe.resubscribe_text": "If you change your mind, you can resubscribe to the newsletter at any time from our homepage.",
+        "unsubscribe.help_text":
+          "If you have problems unsubscribing, you can contact us at",
+        "unsubscribe.resubscribe_text":
+          "If you change your mind, you can resubscribe to the newsletter at any time from our homepage.",
         "unsubscribe.back_home": "Back to homepage",
 
         // Common

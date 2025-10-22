@@ -6,7 +6,7 @@ author: Lewis Carroll, Alice in Wonderland
 image: /images/concepts/6.webp
 ---
 
-Tila ei ole tyhjää. Se on täynnä mahdollisuuksia.
+Tila ei ole tyhjyyttä. Se on täynnä mahdollisuuksia.
 
 Kun tanssit Improtangoa, et vain liiku tilassa – muokkaat sitä. Tutkit eri suuntia. Löydät tilallisia suhteita. Leikittelet korkeudella, etäisyydellä, läheisyydellä.
 

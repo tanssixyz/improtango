@@ -22,8 +22,8 @@ Improtango is a journey. It starts with touch and leads to flow.
 
 **Flexibility.** Plans fall apart. But that's good. You are connected enough to change direction in an instant. To adapt. To find new paths.
 
-**Symmetry and asymmetry.** Sometimes you move the same way, sometimes the opposite. Both are beautiful. Both are right. The choice is made in an instant.
+**Symmetry and asymmetry.** It is the twists and turns that take you out of the symmetry. Asymmetry takes you to the unknown. When you are comfortable stepping into the unknown, your dance will come alive.
 
 **Flow.** And then – often when you least expect it – you reach it. The flow. Everything disappears. No more thinking, no more technique, no more effort. Just movement. Just connection. Just this moment that feels like eternity.
 
-This is the journey of Improtango. In every dance you go through it again. Every time is different. Every time is an opportunity to find the flow.
+This is the journey of Improtango.

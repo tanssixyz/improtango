@@ -16,6 +16,6 @@ Yksilöllisyys häipyy. Rajat hämärtyvät. Kaksi muuttuu yhdeksi.
 
 Tässä syvällisessä yhteydessä pääsette virtauksen tilaan. Viriätte toistenne aikomuksiin ennen kuin ne muuttuvat liikkeeksi. Kommunikoitte tasolla, joka ylittää sanat.
 
-Tämä intensiteetti virtaa jatkuvasti tanssijoiden välillä – kasvaa, vähenee, pulsoi. Se sitoo liikkeet yhteen ja mahdollistaa kommunikaation saumattoman virtauksen.
+Tämä intensiteetti virtaa jatkuvasti tanssijoiden välillä – kasvaa, vähenee, sykkii. Se sitoo liikkeet yhteen ja mahdollistaa kommunikaation saumattoman virtauksen.
 
 Juuri tämä yhteys puhaltaa tanssiin elämää. Se tekee siitä jotain kiehtovaa, syvästi liikuttavaa. Jotain, mitä kumpikaan teistä ei voisi luoda yksin.

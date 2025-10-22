@@ -18,12 +18,12 @@ Improtango on matka. Se alkaa kosketuksesta ja vie virtaukseen.
 
 **Sitoutuminen.** Molemmat antautuvat täysin. Ei enää epäröintiä. Täysi läsnäolo. Täysi sitoutuminen tähän hetkeen, tähän tanssiin.
 
-**Suunta.** Nyt voitte tutkia tilaa vapaasti. Suunta tulee yhteisestä impulssista, ei päätöksestä. Tanssitte tilaasi, ette sen läpi.
+**Suunta.** Nyt voitte tutkia tilaa vapaasti. Suunta tulee yhteisestä impulssista, ei päätöksestä. Tanssinne luo oman tilan, ettekä vain tanssi tilan läpi.
 
 **Joustavuus.** Suunnitelmat hajoavat. Mutta se on hyvä. Olette riittävän yhteydessä muuttaaksenne suuntaa hetkessä. Mukautumaan. Löytämään uusia polkuja.
 
-**Symmetria ja asymmetria.** Joskus liikutte samalla tavalla, joskus vastakkain. Molemmat ovat kauniita. Molemmat ovat oikein. Valinta syntyy hetkessä.
+**Symmetria ja epäsymmetria.** Kierrot ja käännökset vievät teidät pois symmetriasta.Epäsymmetria vie teidät tuntemattomaan. Kun olette valmiita astumaan tuntemattomaan,tanssinne syttyy eloon.
 
-**Virtaus.** Ja sitten – usein kun vähiten odotat – saavutte sen. Virtauksen. Kaikki häviää. Ei enää ajattelua, ei tekniikkaa, ei yritystä. Vain liike. Vain yhteys. Vain tämä hetki, joka tuntuu ikuisuudelta.
+**Virtaus.** Ja sitten – usein kun vähiten odotat – saavutatte sen. Virtauksen. Kaikki häviää. Ei enää ajattelua, ei tekniikkaa, ei yritystä. Vain liike. Vain yhteys. Vain tämä hetki, joka tuntuu ikuisuudelta.
 
-Tämä on Improtangon matka. Jokaisessa tanssissa kuljet sitä uudelleen. Joka kerta on erilainen. Joka kerta on mahdollisuus löytää virtaus.
+Tämä on Improtangon matka.
