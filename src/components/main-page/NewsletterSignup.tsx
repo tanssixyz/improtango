@@ -76,21 +76,27 @@ export function NewsletterSignup() {
     } catch (error) {
       console.error("Newsletter signup error:", error);
 
-      // More detailed error logging
+      // Extract the actual error message from ConvexError
+      let errorMessage = "Uutiskirjeen tilauksessa tapahtui virhe. Yritä uudelleen.";
+      
       if (error instanceof Error) {
-        console.error("Error details:", {
-          message: error.message,
-          stack: error.stack,
-          name: error.name,
-        });
+        // Check if it's a ConvexError with message property
+        if (error.message) {
+          errorMessage = error.message;
+        }
+      } else if (typeof error === 'object' && error !== null) {
+        // Handle case where error is an object with message
+        const errorObj = error as any;
+        if (errorObj.message) {
+          errorMessage = errorObj.message;
+        } else if (errorObj.data && errorObj.data.message) {
+          errorMessage = errorObj.data.message;
+        }
       }
 
       setStatus({
         type: "error",
-        message:
-          error instanceof Error
-            ? error.message
-            : "Uutiskirjeen tilauksessa tapahtui virhe. Yritä uudelleen.",
+        message: errorMessage,
       });
     }
   };
