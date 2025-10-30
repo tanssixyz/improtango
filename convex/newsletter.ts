@@ -26,8 +26,9 @@ export const subscribe = mutation({
         const rateCheck = await checkRateLimit(ctx, args.email)
         
         if (!rateCheck.allowed) {
+          const minutes = Math.ceil(rateCheck.retryAfter! / 60);
           throw new ConvexError(
-            `Rate limit exceeded. Try again in ${rateCheck.retryAfter} seconds.`
+            `Olet jo lähettänyt uutiskirjetilauksen. Voit yrittää uudelleen ${minutes} minuutin kuluttua.`
           )
         }
 

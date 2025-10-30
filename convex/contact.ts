@@ -33,8 +33,9 @@ export const sendContactMessage = action({
     })
     
     if (!rateCheck.allowed) {
+      const minutes = Math.ceil(rateCheck.retryAfter! / 60);
       throw new ConvexError(
-        `Rate limit exceeded. Try again in ${rateCheck.retryAfter} seconds.`
+        `Olet jo lähettänyt yhteydenottolomakkeen. Voit yrittää uudelleen ${minutes} minuutin kuluttua.`
       )
     }
 
