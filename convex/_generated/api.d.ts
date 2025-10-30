@@ -11,6 +11,7 @@
 import type * as contact from "../contact.js";
 import type * as lib_email_templates from "../lib/email_templates.js";
 import type * as newsletter from "../newsletter.js";
+import type * as rateLimit from "../rateLimit.js";
 
 import type {
   ApiFromModules,
@@ -30,6 +31,7 @@ declare const fullApi: ApiFromModules<{
   contact: typeof contact;
   "lib/email_templates": typeof lib_email_templates;
   newsletter: typeof newsletter;
+  rateLimit: typeof rateLimit;
 }>;
 declare const fullApiWithMounts: typeof fullApi;
 

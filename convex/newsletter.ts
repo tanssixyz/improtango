@@ -2,13 +2,17 @@ import { v, ConvexError } from "convex/values";
 import { mutation, action, query } from "./_generated/server";
 import type { MutationCtx, ActionCtx, QueryCtx } from "./_generated/server";
 import { newsletterWelcomeEmail, newsletterAdminNotification, newsletterUnsubscribeNotification } from "./lib/email_templates";
-
+import { checkRateLimit } from "./rateLimit"
 // Subscribe to newsletter
 export const subscribe = mutation({
   args: {
     email: v.string(),
   },
   handler: async (ctx: MutationCtx, args: { email: string }) => {
+    // Input validation
+    if (!args.email?.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(args.email) || args.email.length > 254) {
+      throw new ConvexError("Valid email address is required");
+    }
     // Check if email already exists
     const existing = await ctx.db
       .query("newsletter")
@@ -18,6 +22,15 @@ export const subscribe = mutation({
     if (existing) {
       throw new ConvexError("Tämä sähköpostiosoite on jo tilattu uutiskirjeelle.");
     }
+     // Check rate limit
+        const rateCheck = await checkRateLimit(ctx, args.email)
+        
+        if (!rateCheck.allowed) {
+          throw new ConvexError(
+            `Rate limit exceeded. Try again in ${rateCheck.retryAfter} seconds.`
+          )
+        }
+
 
     // Add to database
     const id = await ctx.db.insert("newsletter", {
@@ -35,9 +48,10 @@ export const sendWelcomeEmail = action({
     email: v.string(),
   },
   handler: async (_ctx: ActionCtx, args: { email: string }) => {
-    console.log("Sending welcome email to:", args.email);
+    console.log("Sending welcome email");
+    // Environment check without exposing values
     console.log("Environment check - API Key present:", !!process.env.AUTH_RESEND_KEY);
-    console.log("Environment check - FROM address:", process.env.AUTH_EMAIL);
+    console.log("Environment check - FROM address configured:", !!process.env.AUTH_EMAIL);
 
     const emailPayload = {
       from: process.env.AUTH_EMAIL,
@@ -46,7 +60,7 @@ export const sendWelcomeEmail = action({
       html: newsletterWelcomeEmail(args.email),
     };
 
-    console.log("Email payload:", JSON.stringify(emailPayload, null, 2));
+    console.log("Email payload prepared for send");
 
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -66,7 +80,7 @@ export const sendWelcomeEmail = action({
     }
 
     const responseData = await response.json();
-    console.log("Email sent successfully:", responseData);
+    console.log("Email sent successfully");
 
     return { success: true };
   },
@@ -78,7 +92,7 @@ export const sendAdminNotification = action({
     email: v.string(),
   },
   handler: async (_ctx: ActionCtx, args: { email: string }) => {
-    console.log("Sending admin notification for newsletter signup:", args.email);
+    console.log("Sending admin notification for newsletter signup");
 
     const emailPayload = {
       from: process.env.AUTH_EMAIL,
@@ -88,7 +102,7 @@ export const sendAdminNotification = action({
       html: newsletterAdminNotification(args.email),
     };
 
-    console.log("Admin notification payload:", JSON.stringify(emailPayload, null, 2));
+    console.log("Admin notification payload prepared");
 
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -108,7 +122,7 @@ export const sendAdminNotification = action({
     }
 
     const responseData = await response.json();
-    console.log("Admin notification sent successfully:", responseData);
+    console.log("Admin notification sent successfully");
 
     return { success: true };
   },
@@ -120,6 +134,10 @@ export const unsubscribe = mutation({
     email: v.string(),
   },
   handler: async (ctx: MutationCtx, args: { email: string }) => {
+    // Input validation
+    if (!args.email?.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(args.email) || args.email.length > 254) {
+      throw new ConvexError("Valid email address is required");
+    }
     // Find the subscriber
     const subscriber = await ctx.db
       .query("newsletter")
@@ -158,7 +176,7 @@ export const sendUnsubscribeNotification = action({
     email: v.string(),
   },
   handler: async (_ctx: ActionCtx, args: { email: string }) => {
-    console.log("Sending unsubscribe admin notification for:", args.email);
+    console.log("Sending unsubscribe admin notification");
 
     const emailPayload = {
       from: process.env.AUTH_EMAIL,
@@ -168,7 +186,7 @@ export const sendUnsubscribeNotification = action({
       html: newsletterUnsubscribeNotification(args.email),
     };
 
-    console.log("Unsubscribe notification payload:", JSON.stringify(emailPayload, null, 2));
+    console.log("Unsubscribe notification payload prepared");
 
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -189,7 +207,7 @@ export const sendUnsubscribeNotification = action({
     }
 
     const responseData = await response.json();
-    console.log("Unsubscribe notification sent successfully:", responseData);
+    console.log("Unsubscribe notification sent successfully");
 
     return { success: true };
   },

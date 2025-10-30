@@ -1,5 +1,7 @@
 {
   "name": "improtango",
+  "description": "Tango improvisation courses - Vite + React + Router v6 + Tailwind + shadcn + Convex",
+  "keywords": ["react-router-v6", "no-file-based-routing", "shadcn-ui", "convex"],
   "private": true,
   "version": "0.0.0",
   "type": "module",

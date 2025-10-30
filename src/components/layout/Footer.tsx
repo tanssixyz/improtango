@@ -22,7 +22,7 @@ export default function Footer() {
           {/* Social Media Links */}
           <div className="flex items-center space-x-4">
             <a
-              href="https://instagram.com"
+              href="https://instagram.com/improtango"
               target="_blank"
               rel="noopener noreferrer"
               className="text-slate-400 hover:text-teal-500 transition-colors duration-200"
@@ -34,7 +34,7 @@ export default function Footer() {
               />
             </a>
             <a
-              href="https://facebook.com"
+              href="https://facebook.com/improtango"
               target="_blank"
               rel="noopener noreferrer"
               className="text-slate-400 hover:text-teal-500 transition-colors duration-200"
@@ -77,12 +77,13 @@ export default function Footer() {
             </Button> */}
           </div>
         </div>
-        
+
         {/* Copyright */}
         <div className="mt-8 pt-6 border-t border-slate-800/50">
           <div className="text-center">
             <p className="text-sm text-slate-500">
-              © {new Date().getFullYear()} Improtango. Minna Tuovinen & Martin Heslop
+              © {new Date().getFullYear()} Improtango. Minna Tuovinen & Martin
+              Heslop
             </p>
           </div>
         </div>

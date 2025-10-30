@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
-interface ResponsiveImageProps {
+export interface ResponsiveImageProps {
   src: string;
   alt: string;
   className?: string;

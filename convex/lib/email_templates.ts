@@ -1,4 +1,17 @@
+// HTML escaping utility
+function escapeHtml(text: string): string {
+  const map: { [key: string]: string } = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+  return text.replace(/[&<>"']/g, (m) => map[m]);
+}
+
 export function contactConfirmationEmail(name: string): string {
+  const safeName = escapeHtml(name);
   return `
     <!DOCTYPE html>
     <html>
@@ -26,7 +39,7 @@ export function contactConfirmationEmail(name: string): string {
               <tr>
                 <td style="padding: 40px 40px 30px;">
                   <h2 style="margin: 0 0 20px; color: #f8fafc; font-size: 24px; font-weight: 600;">
-                    Kiitos yhteydenotostasi, ${name}!
+                    Kiitos yhteydenotostasi, ${safeName}!
                   </h2>
                   <p style="margin: 0 0 16px; color: #cbd5e1; font-size: 16px; line-height: 1.6;">
                     Olemme vastaanottaneet viestisi ja palaamme asiaan mahdollisimman pian.
@@ -167,6 +180,7 @@ export function newsletterWelcomeEmail(email?: string): string {
 }
 
 export function newsletterUnsubscribeNotification(email: string): string {
+  const safeEmail = escapeHtml(email);
   return `
     <!DOCTYPE html>
     <html>
@@ -192,7 +206,7 @@ export function newsletterUnsubscribeNotification(email: string): string {
           
           <div class="info">
             <div class="label">Sähköpostiosoite:</div>
-            <div class="value">${email}</div>
+            <div class="value">${safeEmail}</div>
           </div>
           
           <div class="info">
@@ -211,6 +225,7 @@ export function newsletterUnsubscribeNotification(email: string): string {
 }
 
 export function newsletterAdminNotification(email: string): string {
+  const safeEmail = escapeHtml(email);
   return `
     <!DOCTYPE html>
     <html>
@@ -236,7 +251,7 @@ export function newsletterAdminNotification(email: string): string {
           
           <div class="info">
             <div class="label">Sähköpostiosoite:</div>
-            <div class="value">${email}</div>
+            <div class="value">${safeEmail}</div>
           </div>
           
           <div class="info">

@@ -2,6 +2,7 @@ import { v, ConvexError } from "convex/values";
 import { action } from "./_generated/server";
 import type { ActionCtx } from "./_generated/server";
 import { contactConfirmationEmail } from "./lib/email_templates";
+import { api } from "./_generated/api";
 
 export const sendContactMessage = action({
   args: {
@@ -10,13 +11,32 @@ export const sendContactMessage = action({
     subject: v.string(),
     message: v.string(),
   },
-  handler: async (_ctx: ActionCtx, args: { name: string; email: string; subject: string; message: string }) => {
-    console.log("Contact form submission received:", { 
-      name: args.name, 
-      email: args.email,
-      subject: args.subject, 
-      message: args.message.substring(0, 50) + "..." 
-    });
+  handler: async (ctx: ActionCtx, args: { name: string; email: string; subject: string; message: string }) => {
+    // Input validation and sanitization
+    if (!args.name?.trim() || args.name.length > 100) {
+      throw new ConvexError("Name is required and must be less than 100 characters");
+    }
+    if (!args.email?.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(args.email) || args.email.length > 254) {
+      throw new ConvexError("Valid email address is required");
+    }
+    if (!args.subject?.trim() || args.subject.length > 200) {
+      throw new ConvexError("Subject is required and must be less than 200 characters");
+    }
+    if (!args.message?.trim() || args.message.length > 5000) {
+      throw new ConvexError("Message is required and must be less than 5000 characters");
+    }
+    // Log submission without sensitive data
+    console.log("Contact form submission received for email:", args.email.substring(0, 3) + "***");
+     // Check rate limit
+    const rateCheck = await ctx.runMutation(api.rateLimit.checkAndUpdateRateLimit, {
+      email: args.email
+    })
+    
+    if (!rateCheck.allowed) {
+      throw new ConvexError(
+        `Rate limit exceeded. Try again in ${rateCheck.retryAfter} seconds.`
+      )
+    }
 
     // Check environment variables
     const requiredEnvVars = {
@@ -25,6 +45,7 @@ export const sendContactMessage = action({
       ADMIN_EMAIL: process.env.ADMIN_EMAIL,
       ADMIN_EMAIL_CC: process.env.ADMIN_EMAIL_CC,
     };
+    
 
     for (const [key, value] of Object.entries(requiredEnvVars)) {
       if (!value) {
@@ -46,11 +67,11 @@ export const sendContactMessage = action({
           <p><strong>Sähköposti:</strong> ${args.email}</p>
           <p><strong>Aihe:</strong> ${args.subject}</p>
           <p><strong>Viesti:</strong></p>
-          <p>${args.message.replace(/\n/g, '<br>')}</p>
+          <p>${args.message.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;').replace(/\n/g, '<br>')}</p>
         `,
       };
 
-      console.log("Sending admin notification email:", adminEmailPayload);
+      console.log("Sending admin notification email to:", process.env.ADMIN_EMAIL);
 
       const adminResponse = await fetch("https://api.resend.com/emails", {
         method: "POST",
@@ -62,11 +83,7 @@ export const sendContactMessage = action({
       });
 
       const adminResponseText = await adminResponse.text();
-      console.log("Admin email response:", { 
-        status: adminResponse.status, 
-        statusText: adminResponse.statusText,
-        body: adminResponseText 
-      });
+      console.log("Admin email response status:", adminResponse.status);
 
       if (!adminResponse.ok) {
         throw new ConvexError(`Failed to send admin email: ${adminResponse.status} ${adminResponse.statusText} - ${adminResponseText}`);
@@ -80,11 +97,7 @@ export const sendContactMessage = action({
         html: contactConfirmationEmail(args.name),
       };
 
-      console.log("Sending confirmation email to user:", { 
-        from: confirmationEmailPayload.from, 
-        to: confirmationEmailPayload.to, 
-        subject: confirmationEmailPayload.subject 
-      });
+      console.log("Sending confirmation email to user");
 
       const confirmationResponse = await fetch("https://api.resend.com/emails", {
         method: "POST",
@@ -96,11 +109,7 @@ export const sendContactMessage = action({
       });
 
       const confirmationResponseText = await confirmationResponse.text();
-      console.log("Confirmation email response:", { 
-        status: confirmationResponse.status, 
-        statusText: confirmationResponse.statusText,
-        body: confirmationResponseText 
-      });
+      console.log("Confirmation email response status:", confirmationResponse.status);
 
       if (!confirmationResponse.ok) {
         console.warn(`Failed to send confirmation email: ${confirmationResponse.status} ${confirmationResponse.statusText} - ${confirmationResponseText}`);
