@@ -3,6 +3,7 @@ import { action } from "./_generated/server";
 import type { ActionCtx } from "./_generated/server";
 import { contactConfirmationEmail } from "./lib/email_templates";
 import { api } from "./_generated/api";
+import { getErrorMessage } from "./lib/errorMessages";
 
 export const sendContactMessage = action({
   args: {
@@ -14,16 +15,16 @@ export const sendContactMessage = action({
   handler: async (ctx: ActionCtx, args: { name: string; email: string; subject: string; message: string }) => {
     // Input validation and sanitization
     if (!args.name?.trim() || args.name.length > 100) {
-      throw new ConvexError("Name is required and must be less than 100 characters");
+      throw new ConvexError(getErrorMessage("validation.nameRequired", "fi"));
     }
     if (!args.email?.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(args.email) || args.email.length > 254) {
-      throw new ConvexError("Valid email address is required");
+      throw new ConvexError(getErrorMessage("validation.emailInvalid", "fi"));
     }
     if (!args.subject?.trim() || args.subject.length > 200) {
-      throw new ConvexError("Subject is required and must be less than 200 characters");
+      throw new ConvexError(getErrorMessage("validation.subjectRequired", "fi"));
     }
     if (!args.message?.trim() || args.message.length > 5000) {
-      throw new ConvexError("Message is required and must be less than 5000 characters");
+      throw new ConvexError(getErrorMessage("validation.messageRequired", "fi"));
     }
     // Log submission without sensitive data
     console.log("Contact form submission received for email:", args.email.substring(0, 3) + "***");
@@ -35,7 +36,7 @@ export const sendContactMessage = action({
     if (!rateCheck.allowed) {
       const minutes = Math.ceil(rateCheck.retryAfter! / 60);
       throw new ConvexError(
-        `Olet jo lähettänyt yhteydenottolomakkeen. Voit yrittää uudelleen ${minutes} minuutin kuluttua.`
+        getErrorMessage("contact.rateLimit", "fi", minutes)
       )
     }
 

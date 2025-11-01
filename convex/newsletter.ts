@@ -2,7 +2,8 @@ import { v, ConvexError } from "convex/values";
 import { mutation, action, query } from "./_generated/server";
 import type { MutationCtx, ActionCtx, QueryCtx } from "./_generated/server";
 import { newsletterWelcomeEmail, newsletterAdminNotification, newsletterUnsubscribeNotification } from "./lib/email_templates";
-import { checkRateLimit } from "./rateLimit"
+import { checkRateLimit } from "./rateLimit";
+import { getErrorMessage } from "./lib/errorMessages";
 // Subscribe to newsletter
 export const subscribe = mutation({
   args: {
@@ -11,7 +12,7 @@ export const subscribe = mutation({
   handler: async (ctx: MutationCtx, args: { email: string }) => {
     // Input validation
     if (!args.email?.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(args.email) || args.email.length > 254) {
-      throw new ConvexError("Valid email address is required");
+      throw new ConvexError(getErrorMessage("validation.emailInvalid", "fi"));
     }
     // Check if email already exists
     const existing = await ctx.db
@@ -20,7 +21,7 @@ export const subscribe = mutation({
       .first();
 
     if (existing) {
-      throw new ConvexError("Tämä sähköpostiosoite on jo tilattu uutiskirjeelle.");
+      throw new ConvexError(getErrorMessage("newsletter.alreadySubscribed", "fi"));
     }
      // Check rate limit
         const rateCheck = await checkRateLimit(ctx, args.email)
@@ -28,7 +29,7 @@ export const subscribe = mutation({
         if (!rateCheck.allowed) {
           const minutes = Math.ceil(rateCheck.retryAfter! / 60);
           throw new ConvexError(
-            `Olet jo lähettänyt uutiskirjetilauksen. Voit yrittää uudelleen ${minutes} minuutin kuluttua.`
+            getErrorMessage("newsletter.rateLimit", "fi", minutes)
           )
         }
 
@@ -137,7 +138,7 @@ export const unsubscribe = mutation({
   handler: async (ctx: MutationCtx, args: { email: string }) => {
     // Input validation
     if (!args.email?.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(args.email) || args.email.length > 254) {
-      throw new ConvexError("Valid email address is required");
+      throw new ConvexError(getErrorMessage("validation.emailInvalid", "fi"));
     }
     // Find the subscriber
     const subscriber = await ctx.db

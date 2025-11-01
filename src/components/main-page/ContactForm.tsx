@@ -55,23 +55,23 @@ export function ContactForm() {
     const newErrors: FormErrors = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = "Nimi on pakollinen";
+      newErrors.name = t("errors.validation.name_required");
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = "Sähköposti on pakollinen";
+      newErrors.email = t("errors.validation.email_required");
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Virheellinen sähköpostiosoite";
+      newErrors.email = t("errors.validation.email_invalid");
     }
 
     if (!formData.subject.trim()) {
-      newErrors.subject = "Aihe on pakollinen";
+      newErrors.subject = t("errors.validation.subject_required");
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = "Viesti on pakollinen";
+      newErrors.message = t("errors.validation.message_required");
     } else if (formData.message.trim().length < 10) {
-      newErrors.message = "Viesti on liian lyhyt (vähintään 10 merkkiä)";
+      newErrors.message = t("errors.validation.message_too_short");
     }
 
     setErrors(newErrors);
@@ -110,22 +110,32 @@ export function ContactForm() {
     } catch (error) {
       console.error("Contact form error:", error);
 
-      // Extract the actual error message from ConvexError
-      let errorMessage =
-        "Viestin lähettämisessä tapahtui virhe. Yritä uudelleen.";
-
+      // Extract and translate error messages
+      let errorMessage = t("errors.contact.general");
+      
       if (error instanceof Error) {
-        // Check if it's a ConvexError with message property
-        if (error.message) {
-          errorMessage = error.message;
-        }
-      } else if (typeof error === "object" && error !== null) {
-        // Handle case where error is an object with message
-        const errorObj = error as any;
-        if (errorObj.message) {
-          errorMessage = errorObj.message;
-        } else if (errorObj.data && errorObj.data.message) {
-          errorMessage = errorObj.data.message;
+        const errorText = error.message;
+        
+        // Look for ConvexError pattern in the message
+        const convexErrorMatch = errorText.match(/ConvexError: (.+?)(?:\s+at|$)/);
+        if (convexErrorMatch && convexErrorMatch[1]) {
+          const extractedMessage = convexErrorMatch[1].trim();
+          
+          // Map specific error messages to translation keys
+          if (extractedMessage.includes('Rate limit exceeded') || extractedMessage.includes('yhteydenottolomakkeen')) {
+            // Extract minutes from rate limit message
+            const minutesMatch = extractedMessage.match(/(\d+)\s*minuutin?/);
+            const minutes = minutesMatch ? minutesMatch[1] : '60';
+            errorMessage = t("errors.contact.rate_limit").replace('{minutes}', minutes);
+          } else {
+            // Use the extracted message as-is for other ConvexErrors
+            errorMessage = extractedMessage;
+          }
+        } else if (errorText.includes('ConvexError:')) {
+          const parts = errorText.split('ConvexError: ');
+          if (parts.length > 1) {
+            errorMessage = parts[1].split(' at ')[0].trim();
+          }
         }
       }
 

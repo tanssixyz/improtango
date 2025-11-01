@@ -162,7 +162,7 @@ export default function UnsubscribePage() {
                   >
                     <AlertCircle className="w-5 h-5 shrink-0" />
                     <span>
-                      Sähköpostiosoite {emailFromUrl} {t("unsubscribe.not_subscribed")}
+                      {t("unsubscribe.email_not_subscribed").replace("{email}", emailFromUrl)}
                     </span>
                   </motion.div>
                 )}

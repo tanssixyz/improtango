@@ -85,7 +85,7 @@ export default function Home() {
           {content.intro ? (
             <div dangerouslySetInnerHTML={{ __html: content.intro.content }} />
           ) : (
-            <div className="text-muted-foreground">Loading content...</div>
+            <div className="text-muted-foreground">{t("common.loading")}</div>
           )}
         </Section>
       </ErrorBoundary>
@@ -109,7 +109,7 @@ export default function Home() {
             dangerouslySetInnerHTML={{ __html: content.philosophy.content }}
           />
         ) : (
-          <div className="text-muted-foreground">Loading content...</div>
+          <div className="text-muted-foreground">{t("common.loading")}</div>
         )}
       </Section>
 
@@ -127,7 +127,7 @@ export default function Home() {
         {content.journey ? (
           <div dangerouslySetInnerHTML={{ __html: content.journey.content }} />
         ) : (
-          <div className="text-muted-foreground">Loading content...</div>
+          <div className="text-muted-foreground">{t("common.loading")}</div>
         )}
       </Section>
 
@@ -150,7 +150,7 @@ export default function Home() {
             dangerouslySetInnerHTML={{ __html: content.communication.content }}
           />
         ) : (
-          <div className="text-muted-foreground">Loading content...</div>
+          <div className="text-muted-foreground">{t("common.loading")}</div>
         )}
       </Section>
 
@@ -168,7 +168,7 @@ export default function Home() {
         {content.whoFor ? (
           <div dangerouslySetInnerHTML={{ __html: content.whoFor.content }} />
         ) : (
-          <div className="text-muted-foreground">Loading content...</div>
+          <div className="text-muted-foreground">{t("common.loading")}</div>
         )}
       </Section>
 

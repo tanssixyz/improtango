@@ -202,7 +202,7 @@ export default function About() {
             />
           ) : (
             <div className="flex items-center justify-center h-64">
-              <div className="text-muted-foreground">Loading content...</div>
+              <div className="text-muted-foreground">{t("common.loading")}</div>
             </div>
           )}
         </div>

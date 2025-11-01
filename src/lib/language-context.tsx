@@ -204,6 +204,7 @@ export function LanguageProvider({
         "unsubscribe.status_error":
           "Uutiskirjeen tilauksen peruuttamisessa tapahtui virhe. Yritä uudelleen.",
         "unsubscribe.not_subscribed": "ei ole tilattu uutiskirjeeseemme.",
+        "unsubscribe.email_not_subscribed": "Sähköpostiosoite {email} ei ole tilattu uutiskirjeeseemme.",
         "unsubscribe.email_required": "Sähköposti on pakollinen",
         "unsubscribe.email_invalid": "Virheellinen sähköpostiosoite",
         "unsubscribe.help_text":
@@ -216,6 +217,23 @@ export function LanguageProvider({
         "common.loading": "Ladataan...",
         "common.error": "Virhe",
         "common.success": "Onnistui",
+        "common.error_boundary.title": "Jotain meni pieleen",
+        "common.error_boundary.message": "Pahoittelemme, mutta tapahtui odottamaton virhe. Yritä päivittää sivu.",
+        "common.error_boundary.refresh": "Päivitä sivu",
+        "common.error_boundary.details": "Virheen tiedot",
+
+        // Error messages
+        "errors.newsletter.already_subscribed": "Tämä sähköpostiosoite on jo tilattu uutiskirjeelle.",
+        "errors.newsletter.rate_limit": "Olet jo lähettänyt uutiskirjetilauksen. Voit yrittää uudelleen {minutes} minuutin kuluttua.",
+        "errors.newsletter.general": "Uutiskirjeen tilauksessa tapahtui virhe. Yritä uudelleen.",
+        "errors.contact.rate_limit": "Olet jo lähettänyt yhteydenottolomakkeen. Voit yrittää uudelleen {minutes} minuutin kuluttua.",
+        "errors.contact.general": "Viestin lähettämisessä tapahtui virhe. Yritä uudelleen.",
+        "errors.validation.email_required": "Sähköposti on pakollinen",
+        "errors.validation.email_invalid": "Virheellinen sähköpostiosoite",
+        "errors.validation.name_required": "Nimi on pakollinen",
+        "errors.validation.subject_required": "Aihe on pakollinen", 
+        "errors.validation.message_required": "Viesti on pakollinen",
+        "errors.validation.message_too_short": "Viesti on liian lyhyt (vähintään 10 merkkiä)",
       },
       en: {
         // Navigation
@@ -358,6 +376,7 @@ export function LanguageProvider({
         "unsubscribe.status_error":
           "An error occurred while unsubscribing from the newsletter. Please try again.",
         "unsubscribe.not_subscribed": "is not subscribed to our newsletter.",
+        "unsubscribe.email_not_subscribed": "Email address {email} is not subscribed to our newsletter.",
         "unsubscribe.email_required": "Email is required",
         "unsubscribe.email_invalid": "Invalid email address",
         "unsubscribe.help_text":
@@ -370,6 +389,23 @@ export function LanguageProvider({
         "common.loading": "Loading...",
         "common.error": "Error",
         "common.success": "Success",
+        "common.error_boundary.title": "Something went wrong",
+        "common.error_boundary.message": "We're sorry, but something unexpected happened. Please try refreshing the page.",
+        "common.error_boundary.refresh": "Refresh Page",
+        "common.error_boundary.details": "Error Details",
+
+        // Error messages
+        "errors.newsletter.already_subscribed": "This email address is already subscribed to the newsletter.",
+        "errors.newsletter.rate_limit": "You have already submitted a newsletter subscription. You can try again in {minutes} minutes.",
+        "errors.newsletter.general": "An error occurred while subscribing to the newsletter. Please try again.",
+        "errors.contact.rate_limit": "You have already submitted a contact form. You can try again in {minutes} minutes.",
+        "errors.contact.general": "An error occurred while sending the message. Please try again.",
+        "errors.validation.email_required": "Email is required",
+        "errors.validation.email_invalid": "Invalid email address",
+        "errors.validation.name_required": "Name is required",
+        "errors.validation.subject_required": "Subject is required",
+        "errors.validation.message_required": "Message is required",
+        "errors.validation.message_too_short": "Message is too short (minimum 10 characters)",
       },
     }),
     []
