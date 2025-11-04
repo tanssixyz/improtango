@@ -12,7 +12,7 @@ Halusimme jotain muuta. Halusimme luoda tanssimuodon, jossa syvä kommunikaatio 
 
 Improtango syntyi siitä, missä tangon taikuus todella tapahtuu: improvisaatiossa.
 
-Sen sijaan, että opettelisimme valmiita yhdistelmiä, pilkoimme tangon peruselementit osiin. Harjoittelemme niitä erikseen. Otamme ne vähitellen käyttöön. Rakennamme kohti monimutkaisempia rakenteita – omaan tahtiin.
+Sen sijaan, että opettelisimme valmiita askelkuvioita, pilkoimme tangon peruselementit osiin. Harjoittelemme niitä erikseen. Otamme ne vähitellen käyttöön. Rakennamme kohti monimutkaisempia rakenteita – omaan tahtiin.
 
 Tämä lähestymistapa avaa tangon sisäisen maailman. Se kannustaa vapauteen ja luovuuteen.
 

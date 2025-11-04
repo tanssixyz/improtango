@@ -8,22 +8,22 @@ image: /images/concepts/7.webp
 
 Improtango on matka. Se alkaa kosketuksesta ja vie virtaukseen.
 
-**Kosketus.** Ensimmäinen hetki. Kätesi kumppanisi selässä, heidän kätensä olkapäälläsi. Tästä kaikki alkaa.
+**Kosketus.** Kosketus luo dynaamisen energian, joka liikkuu vapaasti kehojenne välillä.
 
-**Luottamus.** Vähitellen oppii luottamaan. Kumppanin impulsseihin, omaan kehoon, yhteiseen tilaan. Ilman luottamusta ei voi päästää irti.
+**Luottamus.** Luottamus tarkoittaa sitä, että voitte luottaa omaan ja toisen kykyyn kuunnella, vastata ja reagoida impulsseihin.
 
-**Tasapaino.** Etsitte yhteistä keskipistettä. Ei enää kaksi erillistä tasapainoa, vaan yksi jaettu. Tämä mahdollistaa liikkeen, joka aiemmin tuntui mahdottomalta.
+**Tasapaino.** Oman ja yhteisen, jatkuvasti vaihtuvan, tasapainon muutos luo rytmiä, liikettä ja flown hetkiä.
 
-**Aikomus.** Kun luottamus on rakentunut, aikomuksesi muuttuu selkeiksi. Et enää yritä liikaa. Pienin impulssi riittää. Kumppani ymmärtää.
+**Aikomus.** Intentio on avain tanssinne syvyyteen ja ilmaisuvoimaan. Kun intention taitonne kehittyy, opitte viestimään entistä vahvemmin toisillenne.
 
-**Sitoutuminen.** Molemmat antautuvat täysin. Ei enää epäröintiä. Täysi läsnäolo. Täysi sitoutuminen tähän hetkeen, tähän tanssiin.
+**Sitoutuminen.** Jokainen askel on merkityksellinen, kun olette sitoutuneet yhteiseen tanssiin ja toisiinne.
 
-**Suunta.** Nyt voitte tutkia tilaa vapaasti. Suunta tulee yhteisestä impulssista, ei päätöksestä. Tanssinne luo oman tilan, ettekä vain tanssi tilan läpi.
+**Suunta.** Suunta vie teidät tilaan. Tila on muuntuva, dynaaminen. Se on osa tanssia, ei vain sen ympäristö.
 
-**Joustavuus.** Suunnitelmat hajoavat. Mutta se on hyvä. Olette riittävän yhteydessä muuttaaksenne suuntaa hetkessä. Mukautumaan. Löytämään uusia polkuja.
+**Joustavuus.** Joustavuus luo tilaa luovuudelle ja antaa teille vapauden kokeilla erilaisia vaihtoehtoja ja löytää oman ainutlaatuisen tanssin äänen.
 
 **Symmetria ja epäsymmetria.** Kierrot ja käännökset vievät teidät pois symmetriasta.Epäsymmetria vie teidät tuntemattomaan. Kun olette valmiita astumaan tuntemattomaan,tanssinne syttyy eloon.
 
-**Virtaus.** Ja sitten – usein kun vähiten odotat – saavutatte sen. Virtauksen. Kaikki häviää. Ei enää ajattelua, ei tekniikkaa, ei yritystä. Vain liike. Vain yhteys. Vain tämä hetki, joka tuntuu ikuisuudelta.
+**Virtaus.** Ja sitten – usein kun vähiten odotatte – saavutatte sen. Virtauksen. Kaikki häviää. Ei enää ajattelua, ei tekniikkaa, ei yritystä. Vain liike. Vain yhteys. Vain tämä hetki, joka tuntuu ikuisuudelta.
 
 Tämä on Improtangon matka.

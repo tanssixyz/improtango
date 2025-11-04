@@ -14,4 +14,4 @@ Tila on muuntuva, dynaaminen. Se on osa tanssia, ei vain sen ympäristö.
 
 Vuorovaikutuksesi tilan kanssa antaa tanssillesi syvyyttä ja ulottuvuutta. Se tekee siitä kolmiulotteisen, elävän kokemuksen.
 
-Tila kutsuu tutkimaan. Kuka tietää, mitä löydät, kun uskallat ottaa uuden suunnan?
+Tila kutsuu tutkimaan. Kuka tietää, mitä löydät, kun uskallat ottaa uuden suunnan.
