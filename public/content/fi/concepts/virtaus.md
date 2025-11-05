@@ -24,6 +24,6 @@ Improtango on matka. Se alkaa kosketuksesta ja vie virtaukseen.
 
 **Symmetria ja epäsymmetria.** Kierrot ja käännökset vievät teidät pois symmetriasta.Epäsymmetria vie teidät tuntemattomaan. Kun olette valmiita astumaan tuntemattomaan,tanssinne syttyy eloon.
 
-**Virtaus.** Ja sitten – usein kun vähiten odotatte – saavutatte sen. Virtauksen. Kaikki häviää. Ei enää ajattelua, ei tekniikkaa, ei yritystä. Vain liike. Vain yhteys. Vain tämä hetki, joka tuntuu ikuisuudelta.
+**Flow.** Ja sitten – usein kun vähiten odotatte – saavutatte sen. Flown tunteen. Kaikki häviää. Ei enää ajattelua, ei tekniikkaa, ei yritystä. Vain liike. Vain yhteys. Vain tämä hetki, joka tuntuu ikuisuudelta.
 
 Tämä on Improtangon matka.

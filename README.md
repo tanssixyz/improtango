@@ -122,11 +122,8 @@ convex/                 # Backend functions and schema
 
 ### Tailwind CSS
 
-Custom configuration in `tailwind.config.js` with:
-
-- Custom color palette
-- Extended animations
-- Typography settings
+- Tailwind CSS v4
+- @/index.css
 
 ### Vite
 
